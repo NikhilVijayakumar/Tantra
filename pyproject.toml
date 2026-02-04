@@ -1,0 +1,47 @@
+[project]
+name = "TANTRA"
+version = "1.0.0"
+description = "A protocol-oriented NLP library for structural, semantic, and logical text analysis"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+  # Unified logging, reporting, and export infrastructure
+  "Nibandha[reporting,export] @ git+https://github.com/NikhilVijayakumar/Nibandha.git@main",
+]
+
+[project.optional-dependencies]
+
+# Classical & statistical NLP (symbolic, inspectable)
+classic = [
+  "nltk>=3.8",
+  "scikit-learn>=1.3",
+]
+
+# Vector math & similarity (non-LLM)
+vector = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+]
+
+# Graph & structural analysis
+graph = [
+  "networkx>=3.2",
+]
+
+# Modern NLP pipelines (tokenization, POS, NER)
+pipeline = [
+  "spacy>=3.7",
+]
+
+# Research evaluation metrics (text preservation & drift)
+evaluation = [
+  "rouge-score>=0.1.2",
+  "nltk>=3.8",  # METEOR
+]
+
+[tool.setuptools]
+package-dir = { "" = "src/bavans" }
+
+[tool.setuptools.packages.find]
+where = ["src/bavans"]
